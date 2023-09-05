@@ -54,7 +54,7 @@ class App extends Component {
       topRow: boxes.top_row * height,
       rightCol: width - boxes.right_col * width,
       bottomRow: height - boxes.bottom_row * height,
-    };
+    }
   }
 
   displayFaceBox = (box) => {
@@ -68,7 +68,7 @@ class App extends Component {
   onButtonSubmit = () => {
     this.setState({ imageUrl: this.state.input });
 
-    fetch('https://mybackendfrecon.onrender.com/imageurl', {
+    fetch(`${process.env.DATABASE_URL}/imageurl`, {
       method: 'post',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
@@ -80,7 +80,7 @@ class App extends Component {
         // console.log(data)
         this.displayFaceBox(this.calculateFaceLocation(data));
         if (data) {
-          fetch('https://mybackendfrecon.onrender.com/image', {
+          fetch(`${process.env.DATABASE_URL}/image`, {
             method: 'put',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({

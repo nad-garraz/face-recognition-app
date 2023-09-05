@@ -9,7 +9,7 @@ import Signin from './components/Signin/Signin';
 import FaceRecognition from './components/FaceRecognition/FaceRecognition';
 import Register from './components/Register/Register';
 
-const backend_url = process.env.BACKEND_URL
+const { backend_url } = process.env;
 
 const initialState = {
   input: '',
@@ -56,7 +56,7 @@ class App extends Component {
       topRow: boxes.top_row * height,
       rightCol: width - boxes.right_col * width,
       bottomRow: height - boxes.bottom_row * height,
-    }
+    };
   }
 
   displayFaceBox = (box) => {

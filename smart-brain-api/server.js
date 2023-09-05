@@ -7,16 +7,17 @@ const signin = require('./controllers/signin');
 const profile = require('./controllers/profile');
 const image = require('./controllers/image');
 
+const {env} = process.env
 const db = require('knex')({
   client: 'pg',
   connection: {
-    connectionString: process.env.DATABASE_URL,
-    ssl: {rejectUnauthorized: false},
-    host: process.env.DATABASE_HOST,
-    user: process.env.DATABASE_USER,
-    password: process.env.DATABASE_PASSWORD,
-    database: process.env.DATABASE_DB,
-    port: process.env.DATABASE_PORT,
+    connectionString: env.DATABASE_URL,
+    ssl: {rejectUnauthorized: false}, // Esta opción es porque el server es gratis. Pero es una cagada a nivel seguridad.
+    host: env.DATABASE_HOST,
+    user: env.DATABASE_USER,
+    password: env.DATABASE_PASSWORD,
+    database: env.DATABASE_DB,
+    port: env.DATABASE_PORT,
   },
 });
 
@@ -35,6 +36,7 @@ app.use(express.json()); //middleware ??
 //Cuando el cliente quiera ir a "server-address/" le
 //voy a responder con "database.users"
 // app.get('/', (req, res) => { res.send(db.users) });
+
 
 //El cliente mandará los datos para hacer el signin
 //y en el servidor se corroborán los datos mandados por
@@ -55,11 +57,11 @@ app.get('/profile/:id', (req, res, db) => { profile.handleProfileGet(req, res, d
 // El client hace un PUT request a /image
 // le saca el id al body que me manda el server
 // para filtrar al usuario con ese id y sumarle
-// una "entrie".
+// una "entry".
 app.put('/image', (req, res) => { image.handleImagePut(req, res, db); });
 app.post('/imageurl', (req, res) => { image.handleApiCall(req, res); });
 
-const PORT = process.env.PORT || 3000;
+const PORT = env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`app is running on port ${PORT}`);
 });

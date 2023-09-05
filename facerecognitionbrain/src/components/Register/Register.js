@@ -28,7 +28,7 @@ class Register extends React.Component {
   };
 
   onSubmitRegister = () => {
-    fetch('http://localhost:3000/register', {
+    fetch('https://mybackendfrecon.onrender.com/register', {
       method: 'post',
       headers: { 'Content-Type': 'application/json' },
       //convierto la raw data que mando en un objeto

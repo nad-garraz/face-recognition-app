@@ -41,6 +41,9 @@ class Register extends React.Component {
       }),
     })
       .then((response) => response.json())
+      .catch((err) => {
+        console.log(`falló: ${err}`);
+      })
       // el server está programado para contestar
       // con el último usuario agregado a la database
       .then((lastUser) => {
@@ -50,6 +53,9 @@ class Register extends React.Component {
           this.props.loadUser(lastUser);
           this.props.onRouteChange('signIn');
         }
+      })
+      .catch((err) => {
+        console.log('last user failed');
       });
   };
 
@@ -110,7 +116,14 @@ class Register extends React.Component {
               {/* onRouteChange está destructurado más arriba
                * sino habría que poner this.props.onRouteChange
                */}
-              <p onClick={() => onRouteChange('signIn')} href="#0" className="f6 link dim black db" > {' '} Already user? Sign in{' '} </p>
+              <p
+                onClick={() => onRouteChange('signIn')}
+                href="#0"
+                className="f6 link dim black db"
+              >
+                {' '}
+                Already user? Sign in{' '}
+              </p>
             </div>
           </div>
         </main>

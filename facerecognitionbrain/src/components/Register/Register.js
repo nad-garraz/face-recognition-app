@@ -1,6 +1,6 @@
 import React from 'react';
 
-const BACKEND_URL = process.env
+const {BACKEND_URL} = process.env
 
 class Register extends React.Component {
   constructor(props) {

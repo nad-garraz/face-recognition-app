@@ -9,7 +9,7 @@ import Signin from './components/Signin/Signin';
 import FaceRecognition from './components/FaceRecognition/FaceRecognition';
 import Register from './components/Register/Register';
 
-const { backend_url } = process.env;
+const { BACKEND_URL } = process.env;
 
 const initialState = {
   input: '',
@@ -70,7 +70,7 @@ class App extends Component {
   onButtonSubmit = () => {
     this.setState({ imageUrl: this.state.input });
 
-    fetch(`${backend_url}/imageurl`, {
+    fetch(`${BACKEND_URL}/imageurl`, {
       method: 'post',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
@@ -82,7 +82,7 @@ class App extends Component {
         // console.log(data)
         this.displayFaceBox(this.calculateFaceLocation(data));
         if (data) {
-          fetch(`${backend_url}/image`, {
+          fetch(`${BACKEND_URL}/image`, {
             method: 'put',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({

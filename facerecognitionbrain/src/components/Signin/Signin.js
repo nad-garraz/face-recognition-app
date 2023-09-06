@@ -33,7 +33,7 @@ class Signin extends React.Component {
   onSubmitSignIn = () => {
     //send a POST request with the email and password
     //entered by the user
-    fetch(process.env.BACKEND_URL + '/signin', {
+    fetch('https://mybackendfrecon.onrender.com/signin', {
       method: 'post',
       headers: { 'Content-Type': 'application/json' },
       //the JSON.stringify method turn the object

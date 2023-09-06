@@ -49,7 +49,6 @@ class Register extends React.Component {
       .then((lastUser) => {
         // acá tengo una diferencia con el video. Mi solución me gusta más.
         if (lastUser.id) {
-          console.log(lastUser);
           this.props.loadUser(lastUser);
           this.props.onRouteChange('signIn');
         }

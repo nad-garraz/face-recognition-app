@@ -1,7 +1,5 @@
 import React from 'react';
 
-const {BACKEND_URL} = process.env
-
 class Register extends React.Component {
   constructor(props) {
     super(props);
@@ -30,7 +28,7 @@ class Register extends React.Component {
   };
 
   onSubmitRegister = () => {
-    fetch(`${BACKEND_URL}/register`, {
+    fetch(process.env.BACKEND_URL + '/register', {
       method: 'post',
       headers: { 'Content-Type': 'application/json' },
       //convierto la raw data que mando en un objeto

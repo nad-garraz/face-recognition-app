@@ -2,9 +2,8 @@ const { ClarifaiStub, grpc } = require('clarifai-nodejs-grpc');
 
 const stub = ClarifaiStub.grpc();
 const metadata = new grpc.Metadata();
-const { CLARIFAI_TOKEN } = process.env;
 
-metadata.set('authorization', `Key ${CLARIFAI_TOKEN}`);
+metadata.set('authorization', `Key ${process.env.CLARIFAI_TOKEN}`);
 
 const handleApiCall = async (req, res) => {
   const IMAGE_URL = await req.body.input; // recibo del front que manda a /image

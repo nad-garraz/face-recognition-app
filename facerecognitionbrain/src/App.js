@@ -77,7 +77,7 @@ class App extends Component {
     })
       .then((api_response) => api_response.json())
       .then((data) => {
-        // console.log(data)
+        console.log(data)
         this.displayFaceBox(this.calculateFaceLocation(data));
         if (data) {
           fetch('https://mybackendfrecon.onrender.com/image', {
@@ -93,7 +93,7 @@ class App extends Component {
                 Object.assign(this.state.user, { entries: data.entries }),
               );
             })
-            .catch((err) => console.log(err));
+            .catch((err) => console.log('Ultimo de image', err));
         }
       });
   };

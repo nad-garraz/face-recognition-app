@@ -58,7 +58,7 @@ class App extends Component {
     //   rightCol: width - boxes.right_col * width,
     //   bottomRow: height - boxes.bottom_row * height,
     // };
-    const detectedFaces = boxes.map((box) => {
+    const detectedBoxes = boxes.map((box) => {
       return {
         leftCol: box.left_col * width,
         topRow: box.top_row * height,
@@ -66,6 +66,7 @@ class App extends Component {
         bottomRow: height - box.bottom_row * height,
       };
     });
+    return detectedBoxes;
   }
 
   displayFaceBox = (box) => {

@@ -13,6 +13,7 @@ const FaceRecognition = ({ imageUrl, box: boxes }) => {
           height="auto"
         />
         {boxes.map((box) => {
+          console.log(box);
           return (
             <div
               className="bounding-box"

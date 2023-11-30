@@ -2,6 +2,7 @@ import React from 'react';
 import './FaceRecognition.css';
 
 const FaceRecognition = ({ imageUrl, box: boxes }) => {
+  console.log("FaceRecognition");
   return (
     <div className="flex flex-col">
       <div className="center relative">

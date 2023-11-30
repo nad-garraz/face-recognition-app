@@ -45,7 +45,7 @@ class App extends Component {
 
   calculateFaceLocation(data) {
     //get the info of the boxes vertices
-    console.log(data);
+    // console.log(data);
     const boxes = data.outputs[0].data.regions.map(
       (e) => e.region_info.bounding_box,
     );
@@ -67,7 +67,7 @@ class App extends Component {
         bottomRow: height - box.bottom_row * height,
       };
     });
-    console.log(detectedBoxes);
+    console.log("Detected boxes array: ", detectedBoxes);
     return detectedBoxes;
   }
 

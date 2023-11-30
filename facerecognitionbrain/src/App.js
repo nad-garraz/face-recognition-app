@@ -59,7 +59,7 @@ class App extends Component {
     //   rightCol: width - boxes.right_col * width,
     //   bottomRow: height - boxes.bottom_row * height,
     // };
-    const detectedBoxes = boxes.map((box) => {
+    return boxes.map((box) => {
       return {
         leftCol: box.left_col * width,
         topRow: box.top_row * height,
@@ -67,11 +67,12 @@ class App extends Component {
         bottomRow: height - box.bottom_row * height,
       };
     });
-    console.log("Detected boxes array: ", detectedBoxes);
-    return detectedBoxes;
+    // console.log('Detected boxes array: ', detectedBoxes);
+    // return detectedBoxes;
   }
 
   displayFaceBox = (box) => {
+    console.log("changing state: ", box);
     this.setState({ box: box });
   };
 
@@ -91,7 +92,7 @@ class App extends Component {
     })
       .then((api_response) => api_response.json())
       .then((data) => {
-        console.log(data);
+        // console.log(data);
         this.displayFaceBox(this.calculateFaceLocation(data));
         if (data) {
           fetch('https://mybackendfrecon.onrender.com/image', {

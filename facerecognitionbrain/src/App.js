@@ -46,7 +46,7 @@ class App extends Component {
   calculateFaceLocation(data) {
     //get the info of the boxes vertices
     console.log(data);
-    const boxes = data.outputs.data.regions.map(
+    const boxes = data.outputs[0].data.regions.map(
       (e) => e.region_info.bounding_box,
     );
     const image = document.getElementById('inputimage');

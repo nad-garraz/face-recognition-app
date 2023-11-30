@@ -12,7 +12,8 @@ import Register from './components/Register/Register';
 const initialState = {
   input: '',
   imageUrl: '',
-  box: {},
+  // box: {},
+  box: [],
   route: 'signIn',
   isSignedIn: false,
   user: {
@@ -23,6 +24,7 @@ const initialState = {
     joined: '',
   },
 };
+
 class App extends Component {
   constructor() {
     super();
@@ -42,19 +44,28 @@ class App extends Component {
   };
 
   calculateFaceLocation(data) {
-    const box = data.outputs[0].data.regions.map(
+    //get the info of the boxes vertices
+    const boxes = data.outputs.data.regions.map(
       (e) => e.region_info.bounding_box,
     );
     const image = document.getElementById('inputimage');
     const width = Number(image.width);
     const height = Number(image.height);
-    const boxes = box[0];
-    return {
-      leftCol: boxes.left_col * width,
-      topRow: boxes.top_row * height,
-      rightCol: width - boxes.right_col * width,
-      bottomRow: height - boxes.bottom_row * height,
-    };
+    // const boxes = box[0];
+    // return {
+    //   leftCol: boxes.left_col * width,
+    //   topRow: boxes.top_row * height,
+    //   rightCol: width - boxes.right_col * width,
+    //   bottomRow: height - boxes.bottom_row * height,
+    // };
+    const detectedFaces = boxes.map((box) => {
+      return {
+        leftCol: box.left_col * width,
+        topRow: box.top_row * height,
+        rightCol: width - box.right_col * width,
+        bottomRow: height - box.bottom_row * height,
+      };
+    });
   }
 
   displayFaceBox = (box) => {
@@ -77,7 +88,7 @@ class App extends Component {
     })
       .then((api_response) => api_response.json())
       .then((data) => {
-        console.log(data)
+        console.log(data);
         this.displayFaceBox(this.calculateFaceLocation(data));
         if (data) {
           fetch('https://mybackendfrecon.onrender.com/image', {

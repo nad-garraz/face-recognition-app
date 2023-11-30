@@ -123,7 +123,7 @@ class App extends Component {
   };
 
   render() {
-    const { isSignedIn, imageUrl, route, box, user } = this.state;
+    const { isSignedIn, imageUrl, route, boxes, user } = this.state;
 
     return (
       <div className="App">
@@ -141,7 +141,7 @@ class App extends Component {
               onInputChange={this.onInputChange}
               onButtonSubmit={this.onButtonSubmit}
             />
-            <FaceRecognition box={box} imageUrl={imageUrl} />
+            <FaceRecognition box={boxes} imageUrl={imageUrl} />
           </div>
         ) : route === 'signIn' ? (
           <div>
@@ -162,5 +162,9 @@ class App extends Component {
     );
   }
 }
+
+const now = new Date();
+const currentTime = now.toLocaleTimeString();
+console.log(currentTime);
 
 export default App;

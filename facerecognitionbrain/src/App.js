@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import Navigation from './components/Navivation/Navigation';
+import Navigation from './components/Navigation/Navigation';
 import Logo from './components/Logo/Logo';
 import ImageLinkForm from './components/ImageLinkForm/ImageLinkForm';
 import Rank from './components/Rank/Rank';
@@ -12,7 +12,6 @@ import Register from './components/Register/Register';
 const initialState = {
   input: '',
   imageUrl: '',
-  // box: {},
   boxes: [],
   route: 'signIn',
   isSignedIn: false,
@@ -112,18 +111,18 @@ class App extends Component {
 
   render() {
     const { isSignedIn, imageUrl, route, boxes, user } = this.state;
-// return(<h1>Update 2023-12-02: 90 days of free database on render expired, so the app will be up as soon as possible</h1>)
     return (
       <div className="App">
         <ParticlesBg className="particles" type="square" bg={true} />
 
         <Navigation
+          // isSignedIn={isSignedIn}
           isSignedIn={isSignedIn}
           onRouteChange={this.onRouteChange}
         />
         {route === 'home' ? (
           <div>
-            <Logo tiltEnable="false" />
+            <Logo className='logo' tiltEnable="false" />
             <Rank name={user.name} entries={user.entries} />
             <ImageLinkForm
               onInputChange={this.onInputChange}

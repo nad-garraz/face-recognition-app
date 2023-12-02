@@ -1,0 +1,18 @@
+.rank-text {
+  font-size: 50px;
+}
+
+.rank-entries {
+  font-size: 60px;
+}
+
+@media screen and (width < 750px) {
+  .rank-text {
+    margin-top: 50px;
+    font-size: 25px;
+  }
+
+  .rank-entries {
+    font-size: 40px;
+  }
+}

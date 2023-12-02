@@ -1,3 +1,33 @@
+.logo-container {
+  width: 200px;
+  margin: 0px 40px;
+  padding: 0;
+}
+
 .Tilt {
-  background: linear-gradient(89deg, #DD5EDF 0%, #04c8de 100%)
+  background: linear-gradient(89deg, #dd5edf 0%, #04c8de 100%);
+}
+
+.Tilt-inner {
+  height: 200px;
+  width: 200px;
+  border: 5px dashed black;
+  padding: 30px;
+}
+
+@media screen and (width < 750px) {
+  .logo-container,
+  .Tilt,
+  .Tilt-inner {
+    height: 120px;
+    width: 120px;
+    border: 3px dashed black;
+    padding: 10px;
+    margin: 5px;
+  }
+
+  .logo-container, .Tilt {
+    padding: 0px;
+    border: 0px;
+  }
 }

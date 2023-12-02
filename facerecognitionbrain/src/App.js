@@ -124,42 +124,42 @@ class App extends Component {
 
   render() {
     const { isSignedIn, imageUrl, route, boxes, user } = this.state;
-
-    return (
-      <div className="App">
-        <ParticlesBg className="particles" type="square" bg={true} />
-
-        <Navigation
-          isSignedIn={isSignedIn}
-          onRouteChange={this.onRouteChange}
-        />
-        {route === 'home' ? (
-          <div>
-            <Logo tiltEnable="false" />
-            <Rank name={user.name} entries={user.entries} />
-            <ImageLinkForm
-              onInputChange={this.onInputChange}
-              onButtonSubmit={this.onButtonSubmit}
-            />
-            <FaceRecognition box={boxes} imageUrl={imageUrl} />
-          </div>
-        ) : route === 'signIn' ? (
-          <div>
-            <Signin
-              loadUser={this.loadUser}
-              onRouteChange={this.onRouteChange}
-            />
-          </div>
-        ) : (
-          <div>
-            <Register
-              loadUser={this.loadUser}
-              onRouteChange={this.onRouteChange}
-            />
-          </div>
-        )}
-      </div>
-    );
+return(<h1>Update 2023-12-02: 90 days of free database on render expired, so the app will be up as soon as possible</h1>)
+    // return (
+    //   <div className="App">
+    //     <ParticlesBg className="particles" type="square" bg={true} />
+    //
+    //     <Navigation
+    //       isSignedIn={isSignedIn}
+    //       onRouteChange={this.onRouteChange}
+    //     />
+    //     {route === 'home' ? (
+    //       <div>
+    //         <Logo tiltEnable="false" />
+    //         <Rank name={user.name} entries={user.entries} />
+    //         <ImageLinkForm
+    //           onInputChange={this.onInputChange}
+    //           onButtonSubmit={this.onButtonSubmit}
+    //         />
+    //         <FaceRecognition box={boxes} imageUrl={imageUrl} />
+    //       </div>
+    //     ) : route === 'signIn' ? (
+    //       <div>
+    //         <Signin
+    //           loadUser={this.loadUser}
+    //           onRouteChange={this.onRouteChange}
+    //         />
+    //       </div>
+    //     ) : (
+    //       <div>
+    //         <Register
+    //           loadUser={this.loadUser}
+    //           onRouteChange={this.onRouteChange}
+    //         />
+    //       </div>
+    //     )}
+    //   </div>
+    // );
   }
 }
 

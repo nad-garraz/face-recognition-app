@@ -56,7 +56,7 @@ class Signin extends React.Component {
           this.props.onRouteChange('home');
         }
         else {
-          console.log('not an user')
+          console.log('Oops... you are not an user. Register first. Have a good day!')
         }
       });
   };

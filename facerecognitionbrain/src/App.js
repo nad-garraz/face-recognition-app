@@ -45,20 +45,12 @@ class App extends Component {
 
   calculateFaceLocation(data) {
     //get the info of the boxes vertices
-    // console.log(data);
     const boxes = data.outputs[0].data.regions.map(
       (e) => e.region_info.bounding_box,
     );
     const image = document.getElementById('inputimage');
     const width = Number(image.width);
     const height = Number(image.height);
-    // const boxes = box[0];
-    // return {
-    //   leftCol: boxes.left_col * width,
-    //   topRow: boxes.top_row * height,
-    //   rightCol: width - boxes.right_col * width,
-    //   bottomRow: height - boxes.bottom_row * height,
-    // };
     return boxes.map((box) => {
       return {
         leftCol: box.left_col * width,
@@ -67,12 +59,9 @@ class App extends Component {
         bottomRow: height - box.bottom_row * height,
       };
     });
-    // console.log('Detected boxes array: ', detectedBoxes);
-    // return detectedBoxes;
   }
 
   displayFaceBox = (box) => {
-    console.log("changing state: ", box);
     this.setState({ boxes: box })
   };
 
@@ -92,7 +81,6 @@ class App extends Component {
     })
       .then((api_response) => api_response.json())
       .then((data) => {
-        // console.log(data);
         this.displayFaceBox(this.calculateFaceLocation(data));
         if (data) {
           fetch('https://mybackendfrecon.onrender.com/image', {
@@ -162,9 +150,5 @@ class App extends Component {
     );
   }
 }
-
-const now = new Date();
-const currentTime = now.toLocaleTimeString();
-console.log(currentTime);
 
 export default App;

@@ -2,7 +2,6 @@ import React from 'react';
 import './FaceRecognition.css';
 
 const FaceRecognition = ({ imageUrl, box: boxes }) => {
-  console.log("FaceRecognition Component");
   return (
     <div className="flex flex-col">
       <div className="center relative">
@@ -14,7 +13,6 @@ const FaceRecognition = ({ imageUrl, box: boxes }) => {
           height="auto"
         />
         {boxes.map((caja) => {
-          console.log("caja: ", caja);
           return (
             <div
               className="bounding-box"

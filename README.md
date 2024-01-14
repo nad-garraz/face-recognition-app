@@ -4,7 +4,7 @@ The Smart Brain App is a project created to practice React. It is a full-stack a
 
 ## Demo
 
-You can see a live demo of the background color gradient generator [here](https://facereconapp.onrender.com).
+You can see a live demo of the [here](https://facereconapp.onrender.com).
 
 ## Features
 
